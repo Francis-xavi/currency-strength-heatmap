@@ -1,13 +1,13 @@
 import { useState } from "react";
-import useNavigate from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-const availablepairs = ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "USDCAD", "AUDUSD", "NZDUSD",];
+const availablePairs = ["EURUSD", "GBPUSD", "USDJPY", "USDCHF", "USDCAD", "AUDUSD", "NZDUSD",];
 
-export const Welcome = () => {
+export default function Welcome() {
 
-    const [pair1, setpair1] = useState('');
-    const [pair2, setpair2] = useState('');
+    const [pair1, setPair1] = useState('');
+    const [pair2, setPair2] = useState('');
     const navigate = useNavigate();
 
     const handleContinue = () => {
@@ -18,7 +18,7 @@ export const Welcome = () => {
         }
     }
 
-}
+
 
 return (
     <div className="welcome-container">
@@ -56,7 +56,7 @@ return (
       <button
         onClick={handleContinue}
         disabled={!pair1 || !pair2 || pair1 === pair2}
-        className={`px-6 py-2 rounded text-white font-semibold ${
+        className={`px-6 py-2 rounded text-blue font-semibold ${
           !pair1 || !pair2 || pair1 === pair2
             ? "bg-gray-400 cursor-not-allowed"
             : "bg-blue-500 hover:bg-blue-600"
@@ -65,6 +65,6 @@ return (
         Continue
       </button>
     </div>
+    );
+}
     
-    
-)
